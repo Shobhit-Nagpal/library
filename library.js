@@ -37,15 +37,19 @@ function displayBooks() {
         parentDiv.appendChild(div);
 
         const title = document.createElement('h1');
+        title.setAttribute('id','title');
         title.textContent = myLibrary[i].title;
 
         const author = document.createElement('p');
+        author.setAttribute('id','author');
         author.textContent = myLibrary[i].author;
 
         const pages = document.createElement('p');
+        pages.setAttribute('id','pages');
         pages.textContent = `${myLibrary[i].pages} pages`;
 
         const haveRead = document.createElement('p');
+        haveRead.setAttribute('id','read-book');
         haveRead.textContent = myLibrary[i].read;
 
         const readBtn = document.createElement('button');
@@ -116,4 +120,30 @@ removeBtns.forEach(button => {
 
         myLibrary.splice(index,1);
     })
-})
+});
+
+
+//Reading book
+
+const readBtns = document.querySelectorAll('.read');
+
+readBtns.forEach(button => {
+    button.addEventListener('click', () => {
+
+        const index = parseInt(button.parentNode.dataset.index);
+
+        if(myLibrary[index].read === 'read') {
+            myLibrary[index].read = 'not read yet';
+
+            const readText = button.parentNode.querySelector('#read-book');
+            readText.textContent = 'Not read yet';
+        }
+        else {
+            myLibrary[index].read = 'read';
+
+            const readText = button.parentNode.querySelector('#read-book');
+            readText.textContent = 'Read';
+        }
+
+    })
+});
