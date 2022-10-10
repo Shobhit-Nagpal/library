@@ -82,3 +82,16 @@ addToLibrary(lettersFromAStoic);
 
 
 displayBooks();
+
+
+//Opening form
+document.querySelector('.add-book').addEventListener('click', function() {
+    const form = document.querySelector('.bg-form');
+    form.style.display = 'flex';
+});
+
+//Closing form
+document.querySelector('.close').addEventListener('click', function() {
+    const form = document.querySelector('.bg-form');
+    form.style.display = 'none';
+});
