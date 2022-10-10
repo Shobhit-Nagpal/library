@@ -56,6 +56,8 @@ function displayBooks() {
         removeBtn.textContent = 'Remove';
         removeBtn.classList.add("remove");
 
+        div.dataset.index = `${i}`;
+
 
         div.appendChild(title);
         div.appendChild(author);
@@ -95,3 +97,23 @@ document.querySelector('.close').addEventListener('click', function() {
     const form = document.querySelector('.bg-form');
     form.style.display = 'none';
 });
+
+
+//Removing a book
+
+const removeBtns = document.querySelectorAll('.remove');
+
+removeBtns.forEach(button => {
+    button.addEventListener('click', () => {
+        const index = button.parentNode.dataset.index;
+        console.log(index);
+
+        const divToRemove = button.parentNode;
+
+        const parentDiv = document.querySelector('.library');
+        parentDiv.removeChild(divToRemove);
+
+
+        myLibrary.splice(index,1);
+    })
+})
