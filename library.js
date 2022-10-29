@@ -1,7 +1,7 @@
 //Array to store book instances
 let myLibrary = [];
 
-
+/*
 //Object constructor to create books
 function Book(title, author, pages, read) {
     this.title = title;
@@ -13,7 +13,17 @@ function Book(title, author, pages, read) {
       return (`${title} by ${author}, ${pages} pages, ${read}`);
     }
 }
+*/
+class Book {
+    constructor(title, author, pages, read) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+    }
 
+    info() { return (`${title} by ${author}, ${pages} pages, ${read}`); }
+}
 
 //Adding book instances to library
 function addToLibrary(book) {
