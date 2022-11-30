@@ -157,3 +157,12 @@ readBtns.forEach(button => {
 
     })
 });
+
+ 
+//Submitting form
+
+const submitBtn = document.querySelector('#submitBtn');
+
+submitBtn.addEventListener('click', (event) => {
+    event.preventDefault();
+});
